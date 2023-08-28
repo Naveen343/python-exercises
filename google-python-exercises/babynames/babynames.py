@@ -35,13 +35,22 @@ Suggested milestones for incremental development:
 """
 
 def extract_names(filename):
+  f = open(filename , encoding='utf-8')
+  file = f.read()
+ 
+  lists = re.findall(r'\d+', file)
+  list_names = re.findall(r'\w+', file)
+    
+    
+  return lists
+  
   """
   Given a file name for baby.html, returns a list starting with the year string
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
   # +++your code here+++
-  return
+
 
 
 def main():
@@ -63,6 +72,8 @@ def main():
   # +++your code here+++
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
+names = extract_names('baby1990.html')
+print(names)
 
 if __name__ == '__main__':
   main()
